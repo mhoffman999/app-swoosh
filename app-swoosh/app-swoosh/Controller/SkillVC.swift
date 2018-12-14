@@ -10,10 +10,18 @@ import UIKit
 
 class SkillVC: UIViewController {
 
+    //Declaring a variable but not necessarily initializing it
+    //the  "!" makes it implicitly unwrapped, so the code won't run unless there is a player
+    //In other words, it's a promise that there will be code in place, so it won't be nil
+    var player: Player!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        print(player.desiredLeague)
+        
     }
     
 

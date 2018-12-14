@@ -12,6 +12,7 @@ class LeagueVC: UIViewController {
     
     //Declaring a variable but not necessarily initializing it
     //the  "!" makes it implicitly unwrapped, so the code won't run unless there is a player
+    //In other words, it's a promise that there will be code in place, so it won't be nil
     var player: Player!
     
     @IBOutlet weak var nextBtn: BorderButton!
@@ -54,6 +55,13 @@ class LeagueVC: UIViewController {
         nextBtn.isEnabled = true
     }
     
+    //*** PrepareForSegue is ALWAYS called before destination-VC viewDidLoad ***
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let skillVC = segue.destination as? SkillVC {
+            skillVC.player = player //hand-off of LeagueVC player to SkillVC player
+        }
+    }
 
     /*
     // MARK: - Navigation
